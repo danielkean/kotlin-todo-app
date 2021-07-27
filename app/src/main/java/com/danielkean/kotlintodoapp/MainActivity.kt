@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import android.content.Intent
 
 class MainActivity : AppCompatActivity() {
@@ -30,10 +29,7 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun openAddTodoScreen() {
-
-        Toast.makeText(this,"Add Todo Clicked!", Toast.LENGTH_SHORT).show()
-
+    private fun openAddTodoScreen() {
         val intent =  Intent(this, AddTodoActivity::class.java)
         startActivity(intent)
     }

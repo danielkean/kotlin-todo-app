@@ -21,7 +21,8 @@
             android:inputType="text"
             android:hint="@string/add_todo_title_hint"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:maxLength="30"/>
 
         <EditText
             android:id="@+id/description_input"
@@ -29,9 +30,11 @@
             android:inputType="text"
             android:hint="@string/add_todo_description_hint"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:maxLength="60"/>
 
         <Button
+            android:id="@+id/add_todo_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/add_todo_button_text"/>
