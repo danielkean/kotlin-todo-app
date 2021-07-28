@@ -5,14 +5,17 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import java.util.*
 
 class AddTodoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_todo)
 
-        val add_todo_button = findViewById<Button>(R.id.add_todo_button)
-        add_todo_button.setOnClickListener {
+        val addTodoButton = findViewById<Button>(R.id.add_todo_button)
+        addTodoButton.setOnClickListener {
             addTodo()
         }
     }
@@ -37,7 +40,19 @@ class AddTodoActivity : AppCompatActivity() {
         if(!valid) return
 
         // Todo can be added to firebase...
-        /// ...
+        val db = Firebase.firestore
+        val todo = hashMapOf(   "title" to titleText,
+                                "description" to descriptionText,
+                                "isCompleted" to false,
+                                "dateCreated" to Calendar.getInstance().time)
+
+        db.collection("todos").add(todo).addOnSuccessListener { documentReference ->
+            println("DocumentSnapshot added with ID: ${documentReference.id}")
+        }.addOnFailureListener { e ->
+            println("Error adding document: $e")
+        }
+
+        // Toast notification
         Toast.makeText(this,"Todo task has been added.", Toast.LENGTH_SHORT).show()
 
         // Go back to main screen
