@@ -6,12 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ListView
-        android:id="@+id/todo_list"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/firestore_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:scrollbars="none" />
-
+        android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
