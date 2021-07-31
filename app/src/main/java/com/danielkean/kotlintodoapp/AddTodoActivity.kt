@@ -41,16 +41,15 @@ class AddTodoActivity : AppCompatActivity() {
 
         // Todo can be added to firebase...
         val db = Firebase.firestore
-        val todo = hashMapOf(   "title" to titleText,
+        val docReference = db.collection("todos").document()
+
+        val todo = hashMapOf(   "id" to docReference.id,
+                                "title" to titleText,
                                 "description" to descriptionText,
                                 "isCompleted" to false,
-                                "dateCreated" to Calendar.getInstance().time)
+                                "dateCreated" to Calendar.getInstance().time.toString())
 
-        db.collection("todos").add(todo).addOnSuccessListener { documentReference ->
-            println("DocumentSnapshot added with ID: ${documentReference.id}")
-        }.addOnFailureListener { e ->
-            println("Error adding document: $e")
-        }
+        docReference.set(todo)
 
         // Toast notification
         Toast.makeText(this,"Todo task has been added.", Toast.LENGTH_SHORT).show()
