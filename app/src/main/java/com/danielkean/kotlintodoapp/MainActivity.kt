@@ -45,6 +45,10 @@ class MainActivity : AppCompatActivity() {
                     val status: Boolean = holder.todoIsCompleted.isChecked
                     firebaseFirestore.collection("todos").document(model.id!!).update("isCompleted", status)
                 }
+
+                holder.todoDeleteButton.setOnClickListener() {
+                    firebaseFirestore.collection("todos").document(model.id!!).delete()
+                }
             }
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder {

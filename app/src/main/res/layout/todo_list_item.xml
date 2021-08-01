@@ -35,12 +35,24 @@
 
             <TextView
                 android:id="@+id/todo_description"
-                android:layout_width="wrap_content"
+                android:layout_width="308dp"
                 android:layout_height="match_parent"
                 android:layout_column="1"
                 android:text="Description"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
+
+            <ImageButton
+                android:id="@+id/todo_delete_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tv_item_text"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:gravity="end"
+                app:srcCompat="@drawable/ic_close" />
         </TableRow>
 
         <TableRow>
