@@ -2,71 +2,70 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TableLayout
-        android:layout_width="412dp"
-        android:layout_height="91dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+    <TextView
+        android:id="@+id/todo_title"
+        android:layout_width="267dp"
+        android:layout_height="24dp"
+        android:layout_column="1"
+        android:layout_marginStart="84dp"
+        android:text="Title"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+    <CheckBox
+        android:id="@+id/is_complete_checkbox"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/todo_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:text="Title"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </TableRow>
+    <TextView
+        android:id="@+id/todo_description"
+        android:layout_width="267dp"
+        android:layout_height="22dp"
+        android:layout_column="1"
+        android:layout_marginEnd="8dp"
+        android:text="Description"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/todo_delete_button"
+        app:layout_constraintTop_toBottomOf="@+id/todo_title" />
 
-        <TableRow>
+    <ImageButton
+        android:id="@+id/todo_delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/constraint_layout"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="28dp"
+        android:background="@android:color/transparent"
+        android:gravity="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_close" />
 
-            <CheckBox
-                android:id="@+id/is_complete_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="24dp" />
-
-            <TextView
-                android:id="@+id/todo_description"
-                android:layout_width="308dp"
-                android:layout_height="match_parent"
-                android:layout_column="1"
-                android:text="Description"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <ImageButton
-                android:id="@+id/todo_delete_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/tv_item_text"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:background="@android:color/transparent"
-                android:gravity="end"
-                app:srcCompat="@drawable/ic_close" />
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:id="@+id/todo_date_created"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:text="Date Created"
-                android:textColor="@color/grey"
-                android:textSize="12sp" />
-        </TableRow>
-
-    </TableLayout>
+    <TextView
+        android:id="@+id/todo_date_created"
+        android:layout_width="267dp"
+        android:layout_height="34dp"
+        android:layout_column="1"
+        android:layout_marginStart="84dp"
+        android:text="Date Created"
+        android:textColor="@color/grey"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/todo_description" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
