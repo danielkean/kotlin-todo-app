@@ -2,10 +2,7 @@ package com.danielkean.kotlintodoapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuItem
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -43,6 +40,11 @@ class MainActivity : AppCompatActivity() {
                 holder.todoDescription.text = model.description
                 holder.todoDateCreated.text = model.dateCreated
                 holder.todoIsCompleted.isChecked = model.isCompleted!!
+
+                holder.todoIsCompleted.setOnClickListener() {
+                    val status: Boolean = holder.todoIsCompleted.isChecked
+                    firebaseFirestore.collection("todos").document(model.id!!).update("isCompleted", status)
+                }
             }
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder {
