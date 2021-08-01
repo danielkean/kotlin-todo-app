@@ -5,6 +5,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        'kotlin-todo-signing' {
+        storeFile file('todo')
+            storePassword 'todo'
+            keyAlias 'todo'
+            keyPassword 'todo'
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
