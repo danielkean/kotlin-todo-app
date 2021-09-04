@@ -1,5 +1,8 @@
 package com.danielkean.kotlintodoapp
 
+import androidx.annotation.Keep
+
+@Keep
 class Todo {
     var id: String? = null
     var title: String? = null
