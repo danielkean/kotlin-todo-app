@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         firestoreList = findViewById(R.id.firestore_list)
 
         // Query
-        val query: Query = firebaseFirestore.collection("todos")
+        val query: Query = firebaseFirestore.collection("todos").orderBy("dateCreated")
 
         // Options
         val options = FirestoreRecyclerOptions.Builder<Todo>().setQuery(
